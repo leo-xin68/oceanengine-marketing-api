@@ -2,6 +2,7 @@ package model
 
 import (
 	. "github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/enums"
+	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/model/common"
 )
 
 type ProjectCreateRequest struct {
@@ -44,7 +45,7 @@ type ProjectCreateRequest struct {
 }
 
 type ProjectCreateResponse struct {
-	ResponseBaseInfo
+	common.ResponseBaseInfo
 	Data *ProjectCreateResponseData `json:"data,omitempty"`
 }
 

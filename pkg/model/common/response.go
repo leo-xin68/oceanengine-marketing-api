@@ -1,4 +1,4 @@
-package model
+package common
 
 type ResponsePageInfo struct {
 	Page        *int64 `json:"page,omitempty"`

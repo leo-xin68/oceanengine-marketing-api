@@ -14,23 +14,20 @@ import (
 )
 
 type ProjectsCreateExample struct {
-	OceanAds             *ads.SdkClient
+	OceanAds             *ads.App
 	ProjectCreateRequest model.ProjectCreateRequest
 }
 
 func (e *ProjectsCreateExample) Init() {
-	e.OceanAds = ads.Init(&config.SdkConfig{
-		AppID:       AppId,
-		AccessToken: AccessToken,
-		IsDebug:     true,
-	})
+	cfg := config.NewSdkConfig(AppId, AccessToken, true)
+	e.OceanAds = ads.Init(cfg)
 }
 
 func (e *ProjectsCreateExample) RunExample() (model.ProjectCreateResponseData, http.Header, error) {
 	oceanAds := e.OceanAds
 	// change ctx as needed
 	ctx := *oceanAds.Ctx
-	return oceanAds.Project().Create(ctx, e.ProjectCreateRequest)
+	return oceanAds.Project.Create(ctx, e.ProjectCreateRequest)
 }
 
 func main() {
@@ -45,7 +42,7 @@ func main() {
 			"landing_type":"LINK",
 			"marketing_goal":"VIDEO_AND_IMAGE",
 			"ad_type":"ALL",
-			"name":"sdk测试1",
+			"name":"sdk测试4",
 			"search_bid_ratio":1.05,
 			"audience_extend":"ON",
 			"related_product":{
@@ -106,7 +103,6 @@ func main() {
 			fmt.Println("Error:", err)
 		}
 	}
-	util.JsonFormatPrint("Request data", e.ProjectCreateRequest)
 	util.JsonFormatPrint("Response data", response)
 	util.JsonPrint("Headers", headers)
 }

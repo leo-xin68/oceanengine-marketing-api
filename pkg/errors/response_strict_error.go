@@ -1,6 +1,6 @@
 package errors
 
-// ResponseError ...
+// ResponseStrictError ...
 type ResponseStrictError struct {
 	Errors string
 }

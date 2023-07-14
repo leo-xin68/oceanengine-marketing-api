@@ -3,49 +3,43 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/antihax/optional"
 	. "github.com/leo-xin68/oceanengine-marketing-api-go-sdk/examples"
 	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/ads"
 	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/config"
 	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/errors"
-	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/model"
+	model "github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/model/tools"
 	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/util"
 	"net/http"
-	"strings"
 )
 
-type ProjectsGetExample struct {
-	OceanAds          *ads.SdkClient
-	ProjectGetRequest model.ProjectGetRequest
+type ToolAdminInfoGetExample struct {
+	OceanAds             *ads.App
+	ToolAdminGetInfoOpts *model.ToolAdminGetInfoOpts
 }
 
-func (e *ProjectsGetExample) Init() {
-	e.OceanAds = ads.Init(&config.SdkConfig{
-		AppID:       AppId,
-		AccessToken: AccessToken,
-		IsDebug:     true,
-	})
+func (e *ToolAdminInfoGetExample) Init() {
+	cfg := config.NewSdkConfig(AppId, AccessToken, true)
+	e.OceanAds = ads.Init(cfg)
 }
 
-func (e *ProjectsGetExample) RunExample() (model.ProjectGetResponseData, http.Header, error) {
+func (e *ToolAdminInfoGetExample) RunExample() (model.ToolAdminInfoGetResponseData, http.Header, error) {
 	oceanAds := e.OceanAds
 	// change ctx as needed
 	ctx := *oceanAds.Ctx
-	return oceanAds.Project().Get(ctx, e.ProjectGetRequest)
+	return oceanAds.Tools.Admin.Info(ctx, e.ToolAdminGetInfoOpts)
 }
 
 func main() {
-	e := &ProjectsGetExample{}
+	e := &ToolAdminInfoGetExample{}
 	e.Init()
 
-	requestJsonDoc := strings.Replace(`
-		{
-			"advertiser_id":{advertiser_id},
-			"page":1,
-			"page_size":100
-		}
-	`, "{advertiser_id}", AdvertiserId, -1)
-
-	json.Unmarshal([]byte(requestJsonDoc), &e.ProjectGetRequest)
+	e.ToolAdminGetInfoOpts = &model.ToolAdminGetInfoOpts{
+		AdvertiserId: optional.NewString(AdvertiserId),
+		Codes:        optional.NewInterface([]string{"CN"}),
+		Language:     optional.NewString("ZH_CN"),
+		SubDistrict:  optional.NewString("FOUR_LEVEL"),
+	}
 
 	response, headers, err := e.RunExample()
 	if err != nil {
@@ -57,7 +51,6 @@ func main() {
 		}
 	}
 
-	util.JsonFormatPrint("Request data", e.ProjectGetRequest)
 	util.JsonFormatPrint("Response data", response)
 	util.JsonPrint("Headers", headers)
 }

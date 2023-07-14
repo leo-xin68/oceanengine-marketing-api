@@ -6,6 +6,7 @@ import (
 
 type Configuration struct {
 	BasePath      string            `json:"basePath,omitempty"`
+	Version       string            `json:"version,omitempty"`
 	DefaultHeader map[string]string `json:"defaultHeader,omitempty"`
 	HttpClient    *http.Client
 }

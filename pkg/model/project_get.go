@@ -2,6 +2,7 @@ package model
 
 import (
 	. "github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/enums"
+	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/model/common"
 )
 
 type ProjectGetRequest struct {
@@ -31,13 +32,13 @@ type ProjectGetRequestFiltering struct {
 }
 
 type ProjectGetResponse struct {
-	ResponseBaseInfo
+	common.ResponseBaseInfo
 	Data *ProjectGetResponseData `json:"data,omitempty"`
 }
 
 type ProjectGetResponseData struct {
-	List     []ProjectGetListStruct `json:"list,omitempty"`
-	PageInfo *ResponsePageInfo      `json:"page_info,omitempty"`
+	List     []ProjectGetListStruct   `json:"list,omitempty"`
+	PageInfo *common.ResponsePageInfo `json:"page_info,omitempty"`
 }
 
 type ProjectGetListStruct struct {

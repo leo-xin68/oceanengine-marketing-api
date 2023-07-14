@@ -3,27 +3,28 @@ package api
 import (
 	"context"
 	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/errors"
-	. "github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/model"
+	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/model"
+	. "github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/model/common"
 	"io/ioutil"
 	"net/http"
 )
 
 type ProjectApiService service
 
-// Get 获取项目列表
-func (o *ProjectApiService) Get(ctx context.Context, data ProjectGetRequest) (ProjectGetResponseData, http.Header, error) {
+// List 获取项目列表
+func (o *ProjectApiService) List(ctx context.Context, data model.ProjectGetRequest) (model.ProjectGetResponseData, http.Header, error) {
 	var (
 		path        = o.client.Cfg.BasePath + "/v3.0/project/list/"
-		returnValue ProjectGetResponseData
-		response    ProjectGetResponse
+		returnValue model.ProjectGetResponseData
+		response    model.ProjectGetResponse
 	)
 
-	r, err := o.client.buildGetRequest(ctx, path, data)
+	r, err := o.client.BuildGetRequest(ctx, path, data)
 	if err != nil {
 		return returnValue, nil, err
 	}
 
-	httpResponse, err := o.client.callApi(r)
+	httpResponse, err := o.client.CallApi(r)
 	if err != nil || httpResponse == nil {
 		return returnValue, nil, err
 	}
@@ -35,7 +36,7 @@ func (o *ProjectApiService) Get(ctx context.Context, data ProjectGetRequest) (Pr
 	}
 
 	if httpResponse.StatusCode < 300 {
-		err = o.client.decode(&response, responseBody, httpResponse.Header.Get("Content-Type"))
+		err = o.client.Decode(&response, responseBody, httpResponse.Header.Get("Content-Type"))
 		if err == nil {
 			if *response.Code != 0 {
 				var responseErrors []ApiErrorStruct
@@ -56,10 +57,9 @@ func (o *ProjectApiService) Get(ctx context.Context, data ProjectGetRequest) (Pr
 	}
 
 	if httpResponse.StatusCode >= 300 {
-		newErr := GenericSwaggerError{
-			body:  responseBody,
-			error: httpResponse.Status,
-		}
+		newErr := errors.GenericSwaggerError{}
+		newErr.SetBody(responseBody)
+		newErr.SetError(httpResponse.Status)
 		return returnValue, httpResponse.Header, newErr
 	}
 
@@ -67,19 +67,19 @@ func (o *ProjectApiService) Get(ctx context.Context, data ProjectGetRequest) (Pr
 }
 
 // Create 创建项目列表
-func (o *ProjectApiService) Create(ctx context.Context, data ProjectCreateRequest) (ProjectCreateResponseData, http.Header, error) {
+func (o *ProjectApiService) Create(ctx context.Context, data model.ProjectCreateRequest) (model.ProjectCreateResponseData, http.Header, error) {
 	var (
 		path        = o.client.Cfg.BasePath + "/v3.0/project/create/"
-		returnValue ProjectCreateResponseData
-		response    ProjectCreateResponse
+		returnValue model.ProjectCreateResponseData
+		response    model.ProjectCreateResponse
 	)
 
-	r, err := o.client.buildPostRequest(ctx, path, data)
+	r, err := o.client.BuildPostRequest(ctx, path, data)
 	if err != nil {
 		return returnValue, nil, err
 	}
 
-	httpResponse, err := o.client.callApi(r)
+	httpResponse, err := o.client.CallApi(r)
 	if err != nil || httpResponse == nil {
 		return returnValue, nil, err
 	}
@@ -91,7 +91,7 @@ func (o *ProjectApiService) Create(ctx context.Context, data ProjectCreateReques
 	}
 
 	if httpResponse.StatusCode < 300 {
-		err = o.client.decode(&response, responseBody, httpResponse.Header.Get("Content-Type"))
+		err = o.client.Decode(&response, responseBody, httpResponse.Header.Get("Content-Type"))
 		if err == nil {
 			if *response.Code != 0 {
 				var responseErrors []ApiErrorStruct
@@ -112,10 +112,9 @@ func (o *ProjectApiService) Create(ctx context.Context, data ProjectCreateReques
 	}
 
 	if httpResponse.StatusCode >= 300 {
-		newErr := GenericSwaggerError{
-			body:  responseBody,
-			error: httpResponse.Status,
-		}
+		newErr := errors.GenericSwaggerError{}
+		newErr.SetBody(responseBody)
+		newErr.SetError(httpResponse.Status)
 		return returnValue, httpResponse.Header, newErr
 	}
 

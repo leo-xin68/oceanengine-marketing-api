@@ -1,12 +1,13 @@
 package ads
 
 import (
+	. "github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/config"
 	"net/http"
 )
 
 // AuthMiddleware ...
 type AuthMiddleware struct {
-	oceanAds *SdkClient
+	config *SdkConfig
 }
 
 // Handle ...
@@ -15,20 +16,20 @@ func (a *AuthMiddleware) Handle(
 	next func(req *http.Request) (rsp *http.Response, err error),
 ) (rsp *http.Response, err error) {
 
-	oceanAds := a.oceanAds
-	if oceanAds.Config.GlobalConfig.HttpOption.Header != nil {
-		for k, v := range oceanAds.Config.GlobalConfig.HttpOption.Header {
+	cfg := a.config
+	if cfg.GlobalConfig.HttpOption.Header != nil {
+		for k, v := range cfg.GlobalConfig.HttpOption.Header {
 			req.Header[k] = v
 		}
 	}
 
 	// 设置 AccessToken
-	if oceanAds.Config.AccessToken != "" {
-		req.Header.Add("Access-Token", oceanAds.Config.AccessToken)
+	if cfg.AccessToken != "" {
+		req.Header.Add("Access-Token", cfg.AccessToken)
 	}
 
 	// 设置 Debugger模式
-	if oceanAds.Config.IsDebug {
+	if cfg.IsDebug {
 		req.Header.Add("X-Debug-Mode", "1")
 	}
 

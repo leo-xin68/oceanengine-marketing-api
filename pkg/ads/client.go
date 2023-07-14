@@ -2,7 +2,6 @@ package ads
 
 import (
 	"context"
-	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/api"
 	"github.com/leo-xin68/oceanengine-marketing-api-go-sdk/pkg/config"
 	"net/http"
 )
@@ -11,9 +10,7 @@ import (
 type SdkClient struct {
 	http.RoundTripper
 	Config         *config.SdkConfig
-	Client         *api.ApiClient
 	Ctx            *context.Context
-	Version        string
 	middlewareList []Middleware
 }
 
@@ -38,26 +35,4 @@ func (c *SdkClient) GenMiddlewareHandleFunc(
 	return func(req *http.Request) (rsp *http.Response, err error) {
 		return middleware.Handle(req, beforeFunc)
 	}
-}
-
-// Init ...
-func Init(cfg *config.SdkConfig) *SdkClient {
-	cfg.BasePath = "https://ad.oceanengine.com/open_api"
-	version := "1.0.0"
-	ctx := context.Background()
-	ctx = context.WithValue(ctx, "ContextAPIKey", cfg.AccessToken)
-	client := api.NewApiClient(cfg)
-	sdkClient := &SdkClient{
-		Config:       cfg,
-		Ctx:          &ctx,
-		Client:       client,
-		RoundTripper: http.DefaultTransport,
-		Version:      version,
-	}
-
-	sdkClient.Client.Cfg.HttpClient.Transport = sdkClient
-	sdkClient.middlewareList = []Middleware{
-		&AuthMiddleware{sdkClient},
-	}
-	return sdkClient
 }
