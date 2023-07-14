@@ -6,9 +6,7 @@
 
 ## 如何使用
 SDK数组参数调用的方法名与API接口一一对应，如
-    project/list接口就对应ads.Project.List()方法
-    tools/region/get接口就对应ads.Tools.Region.Get()方法
-如果只想单独用某个模块，可以单独实例Tools
+###### 注 model中的所有基本数据类型均为指针类型, 例如：*string, *bool, *int64, *float64
 ```go
 package examples
 
@@ -39,6 +37,3 @@ func main() {
 
 }
 ```
-
-
-注意:model中的所有基本数据类型均为指针类型, 例如：*string, *bool, *int64, *float64
