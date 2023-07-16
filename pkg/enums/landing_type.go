@@ -4,39 +4,39 @@ package enums
 type LandingType string
 
 const (
-	LikeLandingType     LandingType = "LINK"
-	AppLandingType      LandingType = "APP"
-	QuickAppLandingType LandingType = "QUICK_APP"
-	DpaLandingType      LandingType = "DPA"
-	GoodsLandingType    LandingType = "GOODS"
-	StoreLandingType    LandingType = "STORE"
-	AwemeLandingType    LandingType = "AWEME"
-	ShopLandingType     LandingType = "SHOP"
-	LiveLandingType     LandingType = "LIVE"
-	ArticalLandingType  LandingType = "ARTICAL"
+	LandingTypeIsLike     LandingType = "LINK"
+	LandingTypeIsApp      LandingType = "APP"
+	LandingTypeIsQuickApp LandingType = "QUICK_APP"
+	LandingTypeIsDpa      LandingType = "DPA"
+	LandingTypeIsGoods    LandingType = "GOODS"
+	LandingTypeIsStore    LandingType = "STORE"
+	LandingTypeIsAweme    LandingType = "AWEME"
+	LandingTypeIsShop     LandingType = "SHOP"
+	LandingTypeIsLive     LandingType = "LIVE"
+	LandingTypeIsArtical  LandingType = "ARTICAL"
 )
 
 func (t LandingType) String() string {
 	switch t {
-	case LikeLandingType:
+	case LandingTypeIsLike:
 		return "销售线索推广"
-	case AppLandingType:
+	case LandingTypeIsApp:
 		return "应用推广"
-	case QuickAppLandingType:
+	case LandingTypeIsQuickApp:
 		return "快应用"
-	case DpaLandingType:
+	case LandingTypeIsDpa:
 		return "商品目录"
-	case GoodsLandingType:
+	case LandingTypeIsGoods:
 		return "商品推广（鲁班）"
-	case StoreLandingType:
+	case LandingTypeIsStore:
 		return "门店推广"
-	case AwemeLandingType:
+	case LandingTypeIsAweme:
 		return "抖音号推广"
-	case ShopLandingType:
+	case LandingTypeIsShop:
 		return "电商店铺推广"
-	case LiveLandingType:
+	case LandingTypeIsLive:
 		return "直播间推广"
-	case ArticalLandingType:
+	case LandingTypeIsArtical:
 		return "头条文章推广"
 	default:
 		return ""

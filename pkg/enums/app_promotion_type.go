@@ -4,18 +4,18 @@ package enums
 type AppPromotionType string
 
 const (
-	DownloadAppPromotionType AppPromotionType = "DOWNLOAD"
-	LaunchAppPromotionType   AppPromotionType = "LAUNCH"
-	ReserveAppPromotionType  AppPromotionType = "RESERVE"
+	AppPromotionTypeIsDOWNLOAD AppPromotionType = "DOWNLOAD"
+	AppPromotionTypeIsLAUNCH   AppPromotionType = "LAUNCH"
+	AppPromotionTypeIsRESERVE  AppPromotionType = "RESERVE"
 )
 
 func (t AppPromotionType) String() string {
 	switch t {
-	case DownloadAppPromotionType:
+	case AppPromotionTypeIsDOWNLOAD:
 		return "应用下载"
-	case LaunchAppPromotionType:
+	case AppPromotionTypeIsLAUNCH:
 		return "应用调用"
-	case ReserveAppPromotionType:
+	case AppPromotionTypeIsRESERVE:
 		return "预约下载"
 	default:
 		return ""

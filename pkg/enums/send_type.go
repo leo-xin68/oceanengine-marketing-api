@@ -4,15 +4,15 @@ package enums
 type SendType string
 
 const (
-	ServerSendType SendType = "SERVER_SEND"
-	ClientSendType SendType = "CLIENT_SEND"
+	SendTypeIsServer SendType = "SERVER_SEND"
+	SendTypeIsClient SendType = "CLIENT_SEND"
 )
 
 func (t SendType) String() string {
 	switch t {
-	case ServerSendType:
+	case SendTypeIsServer:
 		return "服务器端上传"
-	case ClientSendType:
+	case SendTypeIsClient:
 		return "客户端上传"
 	default:
 		return ""

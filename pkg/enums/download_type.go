@@ -4,15 +4,15 @@ package enums
 type DownloadType string
 
 const (
-	DownloadUrl DownloadType = "DOWNLOAD_URL"
-	ExternalUrl DownloadType = "EXTERNAL_URL"
+	DownloadTypeIsDownloadUrl DownloadType = "DOWNLOAD_URL"
+	DownloadTypeIsExternalUrl DownloadType = "EXTERNAL_URL"
 )
 
 func (t DownloadType) String() string {
 	switch t {
-	case DownloadUrl:
+	case DownloadTypeIsDownloadUrl:
 		return "直接下载"
-	case ExternalUrl:
+	case DownloadTypeIsExternalUrl:
 		return "落地页下载"
 	default:
 		return ""

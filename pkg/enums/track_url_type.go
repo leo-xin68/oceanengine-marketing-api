@@ -4,15 +4,15 @@ package enums
 type TrackUrlType string
 
 const (
-	CustomTrackUrlType  TrackUrlType = "CUSTOM"
-	GroupIdTrackUrlType TrackUrlType = "GROUP_ID"
+	TrackUrlTypeIsCustom  TrackUrlType = "CUSTOM"
+	TrackUrlTypeIsGroupId TrackUrlType = "GROUP_ID"
 )
 
 func (t TrackUrlType) String() string {
 	switch t {
-	case CustomTrackUrlType:
+	case TrackUrlTypeIsCustom:
 		return "自定义链接"
-	case GroupIdTrackUrlType:
+	case TrackUrlTypeIsGroupId:
 		return "监测链接组"
 	default:
 		return ""

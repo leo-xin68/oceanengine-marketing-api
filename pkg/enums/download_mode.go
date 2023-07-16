@@ -4,15 +4,15 @@ package enums
 type DownloadMode string
 
 const (
-	AppStoreDeliveryDownloadMode DownloadMode = "APP_STORE_DELIVERY"
-	DefaultDownloadMode          DownloadMode = "DEFAULT"
+	DownloadModeIsAppStoreDelivery DownloadMode = "APP_STORE_DELIVERY"
+	DownloadModeIsDefault          DownloadMode = "DEFAULT"
 )
 
 func (t DownloadMode) String() string {
 	switch t {
-	case AppStoreDeliveryDownloadMode:
+	case DownloadModeIsAppStoreDelivery:
 		return "商店下载"
-	case DefaultDownloadMode:
+	case DownloadModeIsDefault:
 		return "默认下载"
 	default:
 		return ""

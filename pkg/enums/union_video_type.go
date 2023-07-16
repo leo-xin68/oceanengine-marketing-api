@@ -4,18 +4,18 @@ package enums
 type UnionVideoType string
 
 const (
-	OriginalVideoUnionVideoType UnionVideoType = "ORIGINAL_VIDEO"
-	RewardedVideoUnionVideoType UnionVideoType = "REWARDED_VIDEO"
-	SplashVideoUnionVideoType   UnionVideoType = "SPLASH_VIDEO"
+	UnionVideoTypeIsOriginalVideo UnionVideoType = "ORIGINAL_VIDEO"
+	UnionVideoTypeIsRewardedVideo UnionVideoType = "REWARDED_VIDEO"
+	UnionVideoTypeIsSplashVideo   UnionVideoType = "SPLASH_VIDEO"
 )
 
 func (t UnionVideoType) String() string {
 	switch t {
-	case OriginalVideoUnionVideoType:
+	case UnionVideoTypeIsOriginalVideo:
 		return "原生视频"
-	case RewardedVideoUnionVideoType:
+	case UnionVideoTypeIsRewardedVideo:
 		return "激励视频"
-	case SplashVideoUnionVideoType:
+	case UnionVideoTypeIsSplashVideo:
 		return "开屏视频"
 	default:
 		return ""

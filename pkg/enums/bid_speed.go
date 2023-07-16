@@ -4,15 +4,15 @@ package enums
 type BidSpeed string
 
 const (
-	BalanceBidSpeed BidSpeed = "BALANCE"
-	FastBidSpeed    BidSpeed = "FAST"
+	BidSpeedIsBalance BidSpeed = "BALANCE"
+	BidSpeedIsFast    BidSpeed = "FAST"
 )
 
 func (t BidSpeed) String() string {
 	switch t {
-	case BalanceBidSpeed:
+	case BidSpeedIsBalance:
 		return "匀速"
-	case FastBidSpeed:
+	case BidSpeedIsFast:
 		return "加速"
 	default:
 		return ""

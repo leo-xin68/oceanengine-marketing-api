@@ -4,21 +4,21 @@ package enums
 type AssetType string
 
 const (
-	OrangeAssetType        AssetType = "ORANGE"
-	ThirdpartyAssetType    AssetType = "THIRDPARTY"
-	EnterpriseAssetType    AssetType = "ENTERPRISE"
-	AwemeHomePageAssetType AssetType = "AWEME_HOME_PAGE"
+	AssetTypeIsOrange        AssetType = "ORANGE"
+	AssetTypeIsThirdparty    AssetType = "THIRDPARTY"
+	AssetTypeIsEnterprise    AssetType = "ENTERPRISE"
+	AssetTypeIsAwemeHomePage AssetType = "AWEME_HOME_PAGE"
 )
 
 func (t AssetType) String() string {
 	switch t {
-	case OrangeAssetType:
+	case AssetTypeIsOrange:
 		return "橙子落地页"
-	case ThirdpartyAssetType:
+	case AssetTypeIsThirdparty:
 		return "自研落地页"
-	case EnterpriseAssetType:
+	case AssetTypeIsEnterprise:
 		return "企业号落地页"
-	case AwemeHomePageAssetType:
+	case AssetTypeIsAwemeHomePage:
 		return "抖音主页"
 	default:
 		return ""

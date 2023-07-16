@@ -4,18 +4,18 @@ package enums
 type OptimizedType string
 
 const (
-	OffOptimizedType    OptimizedType = "OFF"
-	ActionOptimizedType OptimizedType = "ACTION"
-	ValueOptimizedType  OptimizedType = "VALUE"
+	OptimizedTypeIsOff    OptimizedType = "OFF"
+	OptimizedTypeIsAction OptimizedType = "ACTION"
+	OptimizedTypeIsValue  OptimizedType = "VALUE"
 )
 
 func (t OptimizedType) String() string {
 	switch t {
-	case OffOptimizedType:
+	case OptimizedTypeIsOff:
 		return "不启用"
-	case ActionOptimizedType:
+	case OptimizedTypeIsAction:
 		return "行为优化"
-	case ValueOptimizedType:
+	case OptimizedTypeIsValue:
 		return "价值优化"
 	default:
 		return ""

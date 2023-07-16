@@ -4,11 +4,32 @@ package enums
 type ConvertedTimeDuration string
 
 const (
-	ConvertedTimeDuration_NONE         ConvertedTimeDuration = "NONE"
-	ConvertedTimeDuration_TODAY        ConvertedTimeDuration = "TODAY"
-	ConvertedTimeDuration_SEVEN_DAY    ConvertedTimeDuration = "SEVEN_DAY"
-	ConvertedTimeDuration_ONE_MONTH    ConvertedTimeDuration = "ONE_MONTH"
-	ConvertedTimeDuration_THREE_MONTH  ConvertedTimeDuration = "THREE_MONTH"
-	ConvertedTimeDuration_SIX_MONTH    ConvertedTimeDuration = "SIX_MONTH"
-	ConvertedTimeDuration_TWELVE_MONTH ConvertedTimeDuration = "TWELVE_MONTH"
+	ConvertedTimeDurationIsNone        ConvertedTimeDuration = "NONE"
+	ConvertedTimeDurationIsToday       ConvertedTimeDuration = "TODAY"
+	ConvertedTimeDurationIsSevenDay    ConvertedTimeDuration = "SEVEN_DAY"
+	ConvertedTimeDurationIsOneMonth    ConvertedTimeDuration = "ONE_MONTH"
+	ConvertedTimeDurationIsThreeMonth  ConvertedTimeDuration = "THREE_MONTH"
+	ConvertedTimeDurationIsSixMonth    ConvertedTimeDuration = "SIX_MONTH"
+	ConvertedTimeDurationIsTwelveMonth ConvertedTimeDuration = "TWELVE_MONTH"
 )
+
+func (t ConvertedTimeDuration) String() string {
+	switch t {
+	case ConvertedTimeDurationIsNone:
+		return "不限"
+	case ConvertedTimeDurationIsToday:
+		return "当天"
+	case ConvertedTimeDurationIsSevenDay:
+		return "7天"
+	case ConvertedTimeDurationIsOneMonth:
+		return "1个月"
+	case ConvertedTimeDurationIsThreeMonth:
+		return "3个月"
+	case ConvertedTimeDurationIsSixMonth:
+		return "6个月"
+	case ConvertedTimeDurationIsTwelveMonth:
+		return "12个月"
+	default:
+		return ""
+	}
+}

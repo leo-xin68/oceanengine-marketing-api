@@ -4,15 +4,15 @@ package enums
 type PromotionType string
 
 const (
-	AwemeHomePagePromotionType   PromotionType = "AWEME_HOME_PAGE"
-	LandingPageLinkPromotionType PromotionType = "LANDING_PAGE_LINK"
+	PromotionTypeIsAwemeHomePage   PromotionType = "AWEME_HOME_PAGE"
+	PromotionTypeIsLandingPageLink PromotionType = "LANDING_PAGE_LINK"
 )
 
 func (t PromotionType) String() string {
 	switch t {
-	case AwemeHomePagePromotionType:
+	case PromotionTypeIsAwemeHomePage:
 		return "抖音主页"
-	case LandingPageLinkPromotionType:
+	case PromotionTypeIsLandingPageLink:
 		return "落地页"
 	default:
 		return ""

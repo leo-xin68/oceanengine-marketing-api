@@ -4,15 +4,15 @@ package enums
 type LaunchType string
 
 const (
-	DirectOpenLaunch   LaunchType = "DIRECT_OPEN"
-	ExternalOpenLaunch LaunchType = "EXTERNAL_OPEN"
+	LaunchTypeIsDirectOpen   LaunchType = "DIRECT_OPEN"
+	LaunchTypeIsExternalOpen LaunchType = "EXTERNAL_OPEN"
 )
 
 func (t LaunchType) String() string {
 	switch t {
-	case DirectOpenLaunch:
+	case LaunchTypeIsDirectOpen:
 		return "直接调起"
-	case ExternalOpenLaunch:
+	case LaunchTypeIsExternalOpen:
 		return "落地页调起"
 	default:
 		return ""

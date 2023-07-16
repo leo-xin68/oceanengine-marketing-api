@@ -4,21 +4,21 @@ package enums
 type MicroPromotionType string
 
 const (
-	WechatGameMicroPromotionType MicroPromotionType = "WECHAT_GAME"
-	WechatAppMicroPromotionType  MicroPromotionType = "WECHAT_APP"
-	ByteGameMicroPromotionType   MicroPromotionType = "BYTE_GAME"
-	ByteAppMicroPromotionType    MicroPromotionType = "BYTE_APP"
+	MicroPromotionTypeIsWechatGame MicroPromotionType = "WECHAT_GAME"
+	MicroPromotionTypeIsWechatApp  MicroPromotionType = "WECHAT_APP"
+	MicroPromotionTypeIsByteGame   MicroPromotionType = "BYTE_GAME"
+	MicroPromotionTypeIsByteApp    MicroPromotionType = "BYTE_APP"
 )
 
 func (t MicroPromotionType) String() string {
 	switch t {
-	case WechatGameMicroPromotionType:
+	case MicroPromotionTypeIsWechatGame:
 		return "微信小游戏"
-	case WechatAppMicroPromotionType:
+	case MicroPromotionTypeIsWechatApp:
 		return "微信小程序"
-	case ByteGameMicroPromotionType:
+	case MicroPromotionTypeIsByteGame:
 		return "字节小游戏"
-	case ByteAppMicroPromotionType:
+	case MicroPromotionTypeIsByteApp:
 		return "字节小程序"
 	default:
 		return ""

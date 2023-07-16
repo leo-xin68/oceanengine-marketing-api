@@ -4,24 +4,24 @@ package enums
 type AgeInterval string
 
 const (
-	Between18To23AgeInterval AgeInterval = "AGE_BETWEEN_18_23"
-	Between24To30AgeInterval AgeInterval = "AGE_BETWEEN_24_30"
-	Between31To40AgeInterval AgeInterval = "AGE_BETWEEN_31_40"
-	Between41To49AgeInterval AgeInterval = "AGE_BETWEEN_41_49"
-	Above50AgeInterval       AgeInterval = "AGE_ABOVE_50"
+	AgeIntervalIsBetween18To23 AgeInterval = "AGE_BETWEEN_18_23"
+	AgeIntervalIsBetween24To30 AgeInterval = "AGE_BETWEEN_24_30"
+	AgeIntervalIsBetween31To40 AgeInterval = "AGE_BETWEEN_31_40"
+	AgeIntervalIsBetween41To49 AgeInterval = "AGE_BETWEEN_41_49"
+	AgeIntervalIsAbove50       AgeInterval = "AGE_ABOVE_50"
 )
 
 func (t AgeInterval) String() string {
 	switch t {
-	case Between18To23AgeInterval:
+	case AgeIntervalIsBetween18To23:
 		return "18-23岁"
-	case Between24To30AgeInterval:
+	case AgeIntervalIsBetween24To30:
 		return "24-30岁"
-	case Between31To40AgeInterval:
+	case AgeIntervalIsBetween31To40:
 		return "31-40岁"
-	case Between41To49AgeInterval:
+	case AgeIntervalIsBetween41To49:
 		return "41-49岁"
-	case Above50AgeInterval:
+	case AgeIntervalIsAbove50:
 		return "大于等于50岁"
 	default:
 		return ""

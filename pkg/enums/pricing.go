@@ -4,21 +4,21 @@ package enums
 type PricingType string
 
 const (
-	CpmPricingType  PricingType = "PRICING_CPM"
-	CpcPricingType  PricingType = "PRICING_CPC"
-	OcpmPricingType PricingType = "PRICING_OCPM"
-	OcpcPricingType PricingType = "PRICING_OCPC"
+	PricingTypeIsCpm  PricingType = "PRICING_CPM"
+	PricingTypeIsCpc  PricingType = "PRICING_CPC"
+	PricingTypeIsOcpm PricingType = "PRICING_OCPM"
+	PricingTypeIsOcpc PricingType = "PRICING_OCPC"
 )
 
 func (t PricingType) String() string {
 	switch t {
-	case CpmPricingType:
+	case PricingTypeIsCpm:
 		return "按展示付费"
-	case CpcPricingType:
+	case PricingTypeIsCpc:
 		return "按点击付费"
-	case OcpmPricingType:
+	case PricingTypeIsOcpm:
 		return "目标转化出价-按展示付费"
-	case OcpcPricingType:
+	case PricingTypeIsOcpc:
 		return "目标转化出价-按点击付费"
 	default:
 		return ""

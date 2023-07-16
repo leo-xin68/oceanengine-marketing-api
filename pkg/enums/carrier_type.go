@@ -4,18 +4,18 @@ package enums
 type CarrierType string
 
 const (
-	MobileCarrierType CarrierType = "MOBILE"
-	UnicomCarrierType CarrierType = "UNICOM"
-	TelcomCarrierType CarrierType = "TELCOM"
+	CarrierTypeIsMobile CarrierType = "MOBILE"
+	CarrierTypeIsUnicom CarrierType = "UNICOM"
+	CarrierTypeIsTelcom CarrierType = "TELCOM"
 )
 
 func (t CarrierType) String() string {
 	switch t {
-	case MobileCarrierType:
+	case CarrierTypeIsMobile:
 		return "移动"
-	case UnicomCarrierType:
+	case CarrierTypeIsUnicom:
 		return "联通"
-	case TelcomCarrierType:
+	case CarrierTypeIsTelcom:
 		return "电信"
 	default:
 		return ""

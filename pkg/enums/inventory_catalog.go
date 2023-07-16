@@ -4,15 +4,15 @@ package enums
 type InventoryCatalog string
 
 const (
-	ManualInventoryCatalog         InventoryCatalog = "MANUAL"
-	UniversalSmartInventoryCatalog InventoryCatalog = "UNIVERSAL_SMART"
+	InventoryCatalogIsManual         InventoryCatalog = "MANUAL"
+	InventoryCatalogIsUniversalSmart InventoryCatalog = "UNIVERSAL_SMART"
 )
 
 func (t InventoryCatalog) String() string {
 	switch t {
-	case ManualInventoryCatalog:
+	case InventoryCatalogIsManual:
 		return "首选媒体"
-	case UniversalSmartInventoryCatalog:
+	case InventoryCatalogIsUniversalSmart:
 		return "通投智选"
 	default:
 		return ""

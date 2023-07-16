@@ -21,15 +21,15 @@ func main() {
 	cfg := config.NewSdkConfig(AppId, AccessToken, false)
 	oceanAds := ads.Init(cfg)
 
-	// project/list 接口就对应 oceanAds.Project.List() 方法
+	// project/list 接口对应 oceanAds.Project.List() 方法
 	req := model.ProjectGetRequest{}
 	response, headers, err := oceanAds.Project.List(*oceanAds.Ctx, req)
 
-	// tools/region/get 接口就对应ads.Tools.Region.Get()方法
+	// tools/region/get 接口对应ads.Tools.Region.Get()方法
 	regionReq := &tools.ToolRegionGetInfoOpts{}
 	response, headers, err := oceanAds.Tools.Region.Get(*oceanAds.Ctx, regionReq)
 
-	// 如果只想单独用某个模块，可以单独实例Tools
+	// 如果只想单独用某个模块，可以单独实例。列：Tools
 	oceanTools := ads.InitTools(cfg, nil)
 
 	// tools/region/get 接口则对应 

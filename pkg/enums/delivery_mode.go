@@ -4,15 +4,15 @@ package enums
 type DeliveryMode string
 
 const (
-	ManualDeliveryMode     DeliveryMode = "MANUAL"
-	ProceduralDeliveryMode DeliveryMode = "PROCEDURAL"
+	DeliveryModeIsManual     DeliveryMode = "MANUAL"
+	DeliveryModeIsProcedural DeliveryMode = "PROCEDURAL"
 )
 
 func (t DeliveryMode) String() string {
 	switch t {
-	case ManualDeliveryMode:
+	case DeliveryModeIsManual:
 		return "手动投放"
-	case ProceduralDeliveryMode:
+	case DeliveryModeIsProcedural:
 		return "自动投放"
 	default:
 		return ""

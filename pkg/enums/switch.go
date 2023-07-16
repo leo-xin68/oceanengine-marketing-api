@@ -4,15 +4,15 @@ package enums
 type Switch string
 
 const (
-	SwitchOn  Switch = "ON"
-	SwitchOff Switch = "OFF"
+	SwitchIsOn  Switch = "ON"
+	SwitchIsOff Switch = "OFF"
 )
 
 func (t Switch) String() string {
 	switch t {
-	case SwitchOn:
+	case SwitchIsOn:
 		return "启用"
-	case SwitchOff:
+	case SwitchIsOff:
 		return "不启用"
 	default:
 		return ""

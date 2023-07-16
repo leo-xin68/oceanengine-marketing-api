@@ -4,27 +4,27 @@ package enums
 type AcType string
 
 const (
-	AcTypeUnknown AcType = "unknown"
-	AcTypeWifi    AcType = "WIFI"
-	AcType2G      AcType = "2G"
-	AcType3G      AcType = "3G"
-	AcType4G      AcType = "4G"
-	AcType5G      AcType = "5G"
+	AcTypeIsUnknown AcType = "unknown"
+	AcTypeIsWifi    AcType = "WIFI"
+	AcTypeIs2G      AcType = "2G"
+	AcTypeIs3G      AcType = "3G"
+	AcTypeIs4G      AcType = "4G"
+	AcTypeIs5G      AcType = "5G"
 )
 
 func (t AcType) String() string {
 	switch t {
-	case AcTypeUnknown:
+	case AcTypeIsUnknown:
 		return "unknown"
-	case AcTypeWifi:
+	case AcTypeIsWifi:
 		return "wifi"
-	case AcType2G:
+	case AcTypeIs2G:
 		return "2G"
-	case AcType3G:
+	case AcTypeIs3G:
 		return "3G"
-	case AcType4G:
+	case AcTypeIs4G:
 		return "4G"
-	case AcType5G:
+	case AcTypeIs5G:
 		return "5G"
 	default:
 		return ""

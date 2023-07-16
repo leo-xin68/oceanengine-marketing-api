@@ -4,21 +4,21 @@ package enums
 type DeepBidType string
 
 const (
-	DeepBidMinDeepBidType     DeepBidType = "DEEP_BID_MIN"
-	RoiCoefficientDeepBidType DeepBidType = "ROI_COEFFICIENT"
-	BidPerActionDeepBidType   DeepBidType = "BID_PER_ACTION"
-	SocialRoiDeepBidType      DeepBidType = "SOCIAL_ROI"
+	DeepBidTypeIsDeepBidMin     DeepBidType = "DEEP_BID_MIN"
+	DeepBidTypeIsRoiCoefficient DeepBidType = "ROI_COEFFICIENT"
+	DeepBidTypeIsBidPerAction   DeepBidType = "BID_PER_ACTION"
+	DeepBidTypeIsSocialRoi      DeepBidType = "SOCIAL_ROI"
 )
 
 func (t DeepBidType) String() string {
 	switch t {
-	case DeepBidMinDeepBidType:
+	case DeepBidTypeIsDeepBidMin:
 		return "自定义手动出价"
-	case RoiCoefficientDeepBidType:
+	case DeepBidTypeIsRoiCoefficient:
 		return "ROI系数出价"
-	case BidPerActionDeepBidType:
+	case DeepBidTypeIsBidPerAction:
 		return "每次付费出价"
-	case SocialRoiDeepBidType:
+	case DeepBidTypeIsSocialRoi:
 		return "ROI三出价"
 	default:
 		return ""

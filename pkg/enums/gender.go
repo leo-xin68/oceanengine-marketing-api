@@ -4,21 +4,21 @@ package enums
 type Gender string
 
 const (
-	NoneGender      Gender = "NONE"
-	UnlimitedGender Gender = "GENDER_UNLIMITED"
-	MaleGender      Gender = "GENDER_MALE"
-	FemaleGender    Gender = "GENDER_FEMALE"
+	GenderIsNone      Gender = "NONE"
+	GenderIsUnlimited Gender = "GENDER_UNLIMITED"
+	GenderIsMale      Gender = "GENDER_MALE"
+	GenderIsFemale    Gender = "GENDER_FEMALE"
 )
 
 func (t Gender) String() string {
 	switch t {
-	case NoneGender:
+	case GenderIsNone:
 		return "不限"
-	case UnlimitedGender:
+	case GenderIsUnlimited:
 		return "不限"
-	case MaleGender:
+	case GenderIsMale:
 		return "男"
-	case FemaleGender:
+	case GenderIsFemale:
 		return "女"
 	default:
 		return ""
