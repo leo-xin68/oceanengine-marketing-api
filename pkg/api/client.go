@@ -11,7 +11,8 @@ type ApiClient struct {
 	common service // 复用单个结构，而不是为每个服务分配一个结构
 
 	// API Services
-	ProjectApi *ProjectApiService
+	ProjectApi   *ProjectApiService
+	PromotionApi *PromotionApiService
 }
 
 type service struct {
@@ -33,6 +34,7 @@ func NewApiClient(sdkConfig *SdkConfig) *ApiClient {
 
 	// API Services
 	c.ProjectApi = (*ProjectApiService)(&c.common)
+	c.PromotionApi = (*PromotionApiService)(&c.common)
 
 	return c
 }

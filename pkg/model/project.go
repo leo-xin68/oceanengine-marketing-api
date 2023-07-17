@@ -6,9 +6,9 @@ import (
 
 // Keywords 搜索关键词列表
 type Keywords struct {
-	Word      *string `json:"word,omitempty"`       //关键词
-	BidType   *string `json:"bid_type,omitempty"`   //出价类型。 允许值:FEED_TO_SEARCH 搜索快投
-	MatchType *string `json:"match_type,omitempty"` //匹配类型，允许值: PHRASE 短语匹配，EXTENSIVE 广泛匹配，PRECISION 精准匹配
+	Word      *string   `json:"word,omitempty"`     //关键词
+	BidType   *string   `json:"bid_type,omitempty"` //出价类型。 允许值:FEED_TO_SEARCH 搜索快投
+	MatchType MatchType `json:"match_type,omitempty"`
 }
 
 // RelatedProduct 关联产品投放相关
@@ -29,23 +29,23 @@ type Products struct {
 // CreateOptimizeGoal 创建优化目标
 type CreateOptimizeGoal struct {
 	AssetIds           *[]uint64 `json:"asset_ids,omitempty"`            //事件管理资产id
+	ConvertId          *uint64   `json:"convert_id,omitempty"`           //转化跟踪id
 	ExternalAction     *string   `json:"external_action,omitempty"`      //优化目标
-	PaidSwitch         *uint8    `json:"paid_switch,omitempty"`          //字节提供的归因方式，返回值： 1启用；2 不启用
 	DeepExternalAction *string   `json:"deep_external_action,omitempty"` //深度转化目标
+	PaidSwitch         *uint8    `json:"paid_switch,omitempty"`          //字节提供的归因方式，返回值： 1启用；2 不启用
 }
 
 // OptimizeGoal 优化目标
 type OptimizeGoal struct {
 	CreateOptimizeGoal
-	ConvertId          *uint64        `json:"convert_id,omitempty"`           //转化跟踪id
 	ValueOptimizedType *OptimizedType `json:"value_optimized_type,omitempty"` //目标优化类型
 }
 
 // DeliveryRange 广告版位
 type DeliveryRange struct {
-	InventoryCatalog *InventoryCatalog `json:"inventory_catalog,omitempty"`
-	InventoryType    *[]InventoryType  `json:"inventory_type,omitempty"`
-	UnionVideoType   *UnionVideoType   `json:"union_video_type,omitempty"`
+	InventoryCatalog InventoryCatalog `json:"inventory_catalog,omitempty"`
+	InventoryType    []InventoryType  `json:"inventory_type,omitempty"`
+	UnionVideoType   UnionVideoType   `json:"union_video_type,omitempty"`
 }
 
 // Geolocation 地图位置
@@ -88,9 +88,9 @@ type TrackUrlSetting struct {
 	TrackUrlGroupId            *uint64       `json:"track_url_group_id,omitempty"`             //监测链接组id
 	TrackUrl                   *[]string     `json:"track_url,omitempty"`                      //展示（监测链接）
 	ActionTrackUrl             *[]string     `json:"action_track_url,omitempty"`               //点击（监测链接）
-	VideoPlayEffectiveTrackUrl *[]string     `json:"video_play_effective_track_url,omitempty"` //视频有效播放（监测链接）
-	VideoPlayDoneTrackUrl      *[]string     `json:"video_play_done_track_url,omitempty"`      //视频播完（监测链接）
 	VideoPlayFirstTrackUrl     *[]string     `json:"video_play_first_track_url,omitempty"`     //视频开始播放（监测链接）
+	VideoPlayDoneTrackUrl      *[]string     `json:"video_play_done_track_url,omitempty"`      //视频播完（监测链接）
+	VideoPlayEffectiveTrackUrl *[]string     `json:"video_play_effective_track_url,omitempty"` //视频有效播放（监测链接）
 	SendType                   *SendType     `json:"send_type,omitempty"`
 }
 

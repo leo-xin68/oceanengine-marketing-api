@@ -1,4 +1,4 @@
-# oceanengine-marketing-api-go-sdk
+# oceanengine-marketing-api
 
 ## 概述
 巨量广告 Marketing API(以下简称API) SDK 提供了Token获取、请求封装、响应解释等功能，以本地化方式轻松完成API的调用和结果的获取，旨在帮助开发者快速搭建投放管理系统。

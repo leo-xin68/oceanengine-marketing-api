@@ -42,7 +42,7 @@ func main() {
 			"landing_type":"LINK",
 			"marketing_goal":"VIDEO_AND_IMAGE",
 			"ad_type":"ALL",
-			"name":"sdk测试4",
+			"name":"sdk测试5",
 			"search_bid_ratio":1.05,
 			"audience_extend":"ON",
 			"related_product":{

@@ -29,6 +29,7 @@ func Init(cfg *SdkConfig) *App {
 	ads.Tools = InitTools(cfg, &ctx)
 
 	ads.Project = client.ProjectApi
+	ads.Promotion = client.PromotionApi
 
 	return ads
 }
@@ -37,5 +38,6 @@ type App struct {
 	*SdkClient
 	Tools *Tools
 
-	Project *api.ProjectApiService
+	Project   *api.ProjectApiService
+	Promotion *api.PromotionApiService
 }
